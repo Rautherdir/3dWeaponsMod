@@ -6,29 +6,31 @@ import org.lwjgl.util.vector.Vector3f;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
+import Rautherdir.ThreeDWeaponStand.Connection;
+import Rautherdir.ThreeDWeaponStand.AmmoTypes.Bullet;
 import Rautherdir.ThreeDWeaponStand.Interfaces.AmmoType;
 import Rautherdir.ThreeDWeaponStand.Interfaces.WeaponBase;
 import Rautherdir.ThreeDWeaponStand.PartTypes.Barrel;
 
-public class GenericBarrel implements Barrel {
+public class GenericShortBarrel implements Barrel {
 
 	List<AmmoType> supportedAmmo;
 	double wear = 256;
-	Vector3f firingMechConnectorAngle;
-	Vector3f firingMechConnectorOrigin;
-	Vector3f underBarrelConectorAngle;
-	Vector3f underBarrelConectorOrigin;
-	Vector3f frontConnectorAngle;
-	Vector3f frontConnectorOrigin;
-	Vector3f overBarrelConnectorAngle;
-	Vector3f overBarrelConnectorOrigin;
+	Connection firingMech;
+	Connection underBarrel;
+	Connection front;
+	Connection overBarrel;
+	
+	public GenericShortBarrel() {
+		supportedAmmo.add(new Bullet());
+	}
 	
 	@Override
 	public String getDescription() {
-		if (wear > 250) return " new generic barrel";
-		else if(wear > 120) return " generic barrel";
-		else if(wear > 10) return "n used generic barrel";
-		else return " worn-out generic barrel";
+		if (wear > 250) return " new generic short barrel";
+		else if(wear > 120) return " generic short barrel";
+		else if(wear > 10) return "n used generic short barrel";
+		else return " worn-out generic short barrel";
 	}
 
 	@Override
@@ -61,7 +63,7 @@ public class GenericBarrel implements Barrel {
 
 	@Override
 	public String getName() {
-		return "Generic Barrel";
+		return "Generic Short Barrel";
 	}
 
 	@Override
@@ -79,10 +81,10 @@ public class GenericBarrel implements Barrel {
 
 	@Override
 	public double getRangeMod() {
-		if (wear > 250) return 1.1;
-		else if(wear > 120) return 1.0;
-		else if(wear > 10) return 0.8;
-		else return 0.5;
+		if (wear > 250) return 0.8;
+		else if(wear > 120) return 0.75;
+		else if(wear > 10) return 0.5;
+		else return 0.4;
 	}
 
 }

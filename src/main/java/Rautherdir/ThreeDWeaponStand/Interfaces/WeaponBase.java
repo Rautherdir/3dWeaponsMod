@@ -2,9 +2,6 @@ package Rautherdir.ThreeDWeaponStand.Interfaces;
 
 import java.util.List;
 
-import Rautherdir.ThreeDWeaponStand.PartTypes.Barrel;
-import Rautherdir.ThreeDWeaponStand.PartTypes.FiringMech;
-import Rautherdir.ThreeDWeaponStand.PartTypes.Handle;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
 

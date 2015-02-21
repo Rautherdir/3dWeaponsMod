@@ -6,6 +6,8 @@ import org.lwjgl.util.vector.Vector3f;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
+import Rautherdir.ThreeDWeaponStand.Connection;
+import Rautherdir.ThreeDWeaponStand.AmmoTypes.Bullet;
 import Rautherdir.ThreeDWeaponStand.Interfaces.AmmoType;
 import Rautherdir.ThreeDWeaponStand.Interfaces.WeaponBase;
 import Rautherdir.ThreeDWeaponStand.PartTypes.FiringMech;
@@ -14,10 +16,12 @@ public class GenericTrigger implements FiringMech {
 
 	List<AmmoType> supportedAmmo;
 	double wear = 256;
-	Vector3f barrelConnectorAngle;
-	Vector3f barrelConnectorOrigin;
-	Vector3f handleConectorAngle;
-	Vector3f handleConectorOrigin;
+	Connection barrelConnector;
+	Connection handleConnector;
+	
+	public GenericTrigger() {
+		supportedAmmo.add(new Bullet());
+	}
 	
 	@Override
 	public String getDescription() {
