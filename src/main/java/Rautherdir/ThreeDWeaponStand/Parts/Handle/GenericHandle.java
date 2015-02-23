@@ -42,7 +42,7 @@ public class GenericHandle implements Handle {
 
 	@Override
 	public IModelCustom getModel() {
-		return AdvancedModelLoader.loadModel("/assets/rautherdir/models/genericHandle.obj");
+		return AdvancedModelLoader.loadModel("/assets/rautherdir/models/genericHandle.since_git_wont_read_obj");
 	}
 
 	@Override

@@ -5,8 +5,10 @@ import java.util.List;
 import org.lwjgl.util.vector.Vector3f;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 import Rautherdir.ThreeDWeaponStand.Connection;
+import Rautherdir.ThreeDWeaponStand.Connection.ConnectionType;
 import Rautherdir.ThreeDWeaponStand.AmmoTypes.Bullet;
 import Rautherdir.ThreeDWeaponStand.Interfaces.AmmoType;
 import Rautherdir.ThreeDWeaponStand.Interfaces.WeaponBase;
@@ -21,6 +23,8 @@ public class GenericTrigger implements FiringMech {
 	
 	public GenericTrigger() {
 		supportedAmmo.add(new Bullet());
+		barrelConnector = new Connection(new Vector3f(0.5f, 0.15f, 0.15f), new Vector3f(1.0f, 0.0f, 0.0f), ConnectionType.generic);
+		handleConnector = new Connection(new Vector3f(0.1f, 0.0f, 0.15f), new Vector3f(0.0f, -1.0f, 0.0f), ConnectionType.generic);
 	}
 	
 	@Override
@@ -38,8 +42,7 @@ public class GenericTrigger implements FiringMech {
 
 	@Override
 	public IModelCustom getModel() {
-		// TODO Auto-generated method stub
-		return null;
+		return AdvancedModelLoader.loadModel("/assets/rautherdir/models/genericTrigger.bcs_git_wont_read_obj");
 	}
 
 	@Override

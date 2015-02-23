@@ -5,8 +5,10 @@ import java.util.List;
 import org.lwjgl.util.vector.Vector3f;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 import Rautherdir.ThreeDWeaponStand.Connection;
+import Rautherdir.ThreeDWeaponStand.Connection.ConnectionType;
 import Rautherdir.ThreeDWeaponStand.AmmoTypes.Bullet;
 import Rautherdir.ThreeDWeaponStand.Interfaces.AmmoType;
 import Rautherdir.ThreeDWeaponStand.Interfaces.WeaponBase;
@@ -23,6 +25,10 @@ public class GenericShortBarrel implements Barrel {
 	
 	public GenericShortBarrel() {
 		supportedAmmo.add(new Bullet());
+		firingMech = new Connection(new Vector3f(0.0f, 0.2f, 0.2f), new Vector3f(-1.0f, 0.0f, 0.0f), ConnectionType.generic);
+		front = new Connection(new Vector3f(1.6f, 0.2f, 0.2f), new Vector3f(1.0f, 0.0f, 0.0f), ConnectionType.generic);
+		overBarrel = new Connection(new Vector3f(0.8f, 0.4f, 0.2f), new Vector3f(0.0f, 1.0f, 0.0f), ConnectionType.generic);
+		underBarrel = new Connection(new Vector3f(0.8f, 0.0f, 0.2f), new Vector3f(0.0f, -1.0f, 0.0f), ConnectionType.generic);
 	}
 	
 	@Override
@@ -40,8 +46,7 @@ public class GenericShortBarrel implements Barrel {
 
 	@Override
 	public IModelCustom getModel() {
-		// TODO Auto-generated method stub
-		return null;
+		return AdvancedModelLoader.loadModel("/assets/rautherdir/models/genericShortBarrel.since_git_wont_read_obj");
 	}
 
 	@Override
